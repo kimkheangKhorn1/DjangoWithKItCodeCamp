@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Modern Webpage</title>
+    <style>
+        /* Same internal CSS styles as in index.html */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ecf0f1;
+        }
+
+        main {
+            background-color: white;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Services</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+                <h2>Consulting Services</h2>
+                <p>We provide expert consulting services to help businesses develop strategies and implement solutions that drive success. Our experienced consultants will work with you to identify opportunities for growth and improvement.</p>
+            </article>
+
+            <article>
+                <h2>Software Development</h2>
+                <p>Our team of skilled developers delivers high-quality software solutions tailored to meet your business needs. Whether it's a custom web application, mobile app, or enterprise solution, we have you covered.</p>
+            </article>
+
+            <article>
+                <h2>Marketing Solutions</h2>
+                <p>We offer a range of digital marketing services, from SEO and content marketing to social media management and pay-per-click advertising. Our goal is to help you reach your target audience and drive results.</p>
+            </article>
+
+            <article>
+                <h2>Support & Maintenance</h2>
+                <p>Our team is dedicated to providing ongoing support and maintenance for your business solutions. Whether it's regular updates, troubleshooting, or optimization, we ensure your systems stay up and running smoothly.</p>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Modern Webpage. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
