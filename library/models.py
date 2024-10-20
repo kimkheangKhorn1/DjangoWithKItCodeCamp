@@ -44,7 +44,7 @@ class Author(models.Model):
     name = models.CharField(max_length=100, help_text="Enter the author's name.")  # Author's name
     date_of_birth = models.DateField(null=True, blank=True, help_text="Enter the author's date of birth.")  # Optional date of birth
     date_of_death = models.DateField(null=True, blank=True, help_text="Enter the author's date of death (if applicable).")  # Optional date of death
-    books = models.ManyToManyField("BookI", help_text="Select books written by this author.")  # Relationship to books written by the author
+    books = models.ManyToManyField("Book", help_text="Select books written by this author.")  # Corrected to reference 'Book' instead of 'BookI'
 
     def __str__(self):
         # String representation of the author
@@ -58,7 +58,7 @@ class Language(models.Model):
     """
     name = models.CharField(max_length=100, help_text="Enter the language name.")  # Language name
     books = models.ManyToManyField(
-        "BookI",  # Reference to the BookI model
+        "Book",  # Corrected to reference 'Book' instead of 'BookI'
         related_name="languages",  # Related name to avoid clashes with other relationships
         help_text="Select books in this language."  # Help text for the admin
     )
@@ -68,7 +68,7 @@ class Language(models.Model):
         return self.name  # Return the language name
 
 
-class BookI(models.Model):
+class Book(models.Model):
     """
     Represents a book in the library.
     Each book has a title, summary, ISBN, genre, and language.
@@ -94,7 +94,7 @@ class BookI(models.Model):
     )
 
     class Meta:
-        # Metadata options for the BookI model
+        # Metadata options for the Book model
         ordering = ["title"]  # Default ordering by book title
 
     def get_absolute_url(self):
@@ -103,8 +103,16 @@ class BookI(models.Model):
 
     def __str__(self):
         # String representation of the book
-        return self.title  # Return the book title
+        return f'{self.id}. {self.title}' # Return the book title
+    
+    def display_genre(self):
+        list_genres_name = self.genre.all()  # Corrected variable name
+        genre_names = []
+        for genre in list_genres_name:
+            genre_names.append(genre.name)  # Use parentheses to call append and access the genre name
+        return ', '.join(genre_names)
 
+    display_genre.short_description = 'Genre'  # Corrected spelling of 'short_description'
 
 class BookInstance(models.Model):
     """
@@ -142,7 +150,7 @@ class BookInstance(models.Model):
     )
     
     book = models.ForeignKey(
-        BookI,  # Reference to the BookI model
+        Book,  # Reference to the Book model
         on_delete=models.RESTRICT,  # Prevent deletion if there are related instances
         null=True  # Allow null values for this field
     )
@@ -153,7 +161,7 @@ class BookInstance(models.Model):
 
     def __str__(self):
         # String representation of the book instance
-        return self.book.title  # Return the title of the associated book
+        return  f'{self.uniqueid} [{self.book.title}]'  # Return the title of the associated book
 
     def get_absolute_url(self):
         # Returns the URL for the book instance detail view
