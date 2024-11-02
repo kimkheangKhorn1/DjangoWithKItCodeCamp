@@ -34,6 +34,7 @@ class Genre(models.Model):
     def get_absolute_url(self):
         # Returns the URL for the genre detail view
         return reverse("genre_detail", args=[str(self.id)])  # Use reverse to get the URL
+    
 
 
 class Author(models.Model):
@@ -73,6 +74,7 @@ class Book(models.Model):
     Represents a book in the library.
     Each book has a title, summary, ISBN, genre, and language.
     """
+    # adding
     title = models.CharField(max_length=300, help_text="Enter the Book Title.")  # Book title
     summary = models.TextField(max_length=1500, help_text="Enter the Book Description.")  # Summary of the book
     isbn = models.CharField(
@@ -96,6 +98,8 @@ class Book(models.Model):
     class Meta:
         # Metadata options for the Book model
         ordering = ["title"]  # Default ordering by book title
+        permissions = (("can_mark_returned", "Set book as returned"),)
+
 
     def get_absolute_url(self):
         # Returns the URL for the book detail view

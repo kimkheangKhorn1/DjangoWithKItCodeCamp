@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-primary">Genres</h2>
+    <ul class="list-group">
+        {% for genre in genre_list %}
+            <li class="list-group-item">
+                <strong>{{ genre.name }}</strong>
+            </li>
+        {% empty %}
+            <li class="list-group-item text-danger">No genres available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
+

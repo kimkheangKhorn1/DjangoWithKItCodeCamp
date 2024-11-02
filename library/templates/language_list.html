@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-primary">Languages</h2>
+    <ul class="list-group">
+        {% for language in language_list %}
+            <li class="list-group-item">
+                <strong>{{ language.name }}</strong>
+            </li>
+        {% empty %}
+            <li class="list-group-item text-danger">No languages available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

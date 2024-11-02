@@ -30,5 +30,13 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('library.urls')),
+    
+    # Add specific url path for authentication
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+
+from django.views.generic import RedirectView
+urlpatterns += [
+    path('', RedirectView.as_view(url = 'library/', permanent = False))
 ]
 

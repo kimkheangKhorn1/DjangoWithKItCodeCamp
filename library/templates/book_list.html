@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h1 class="card-title">Book List Views</h1>
+        </div>
+        <div class="card-body">
+            {% if book_list %}
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Summary</th>
+                            <th scope="col">ISBN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in book_list %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
+                            <td>
+                                <small>{{ book.display_genre }}</small>
+                            </td>
+                            <td><small>{{ book.summary }}</small></td>
+                            <td>{{ book.isbn }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p>No books available in the library.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h1 class="card-title">Title: {{ book.title }}</h1>
+        </div>
+        <div class="card-body">
+            <p><strong>Summary:</strong> {{ book.summary }}</p>
+            <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+            <p><strong>Genre:</strong> {{ book.display_genre }}</p>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+

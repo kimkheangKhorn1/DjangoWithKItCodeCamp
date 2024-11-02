@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h1 class="card-title">{{ author.name }}</h1>
+            </div>
+            <div class="card-body">
+                <p><strong>Date of Birth:</strong> {{ author.date_of_birth|date:"F j, Y" }}</p>
+                <p><strong>Date of Death:</strong> {{ author.date_of_death|date:"F j, Y" }}</p>
+
+                <h2 class="mt-4">Books Written:</h2>
+                <ul class="list-group">
+                    {% for book in author.books.all %}
+                        <li class="list-group-item">
+                            <h5>{{ book.title }}</h5>
+                            <p class="mb-0"><strong>Genres:</strong> {{ book.display_genre }}</p>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">No books available.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

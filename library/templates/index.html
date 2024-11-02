@@ -1,23 +1,33 @@
 {% extends "base_generic.html" %}
 {% block content %}
-<h1>Welcome to the Library Management System</h1>
-<h2>The library has the following record counts:</h2>
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Total number of books:
-    <span class="badge bg-primary rounded-pill">{{ num_books }}</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Total number of book copies:
-    <span class="badge bg-primary rounded-pill">{{ num_books_copied }}</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Total number of genres:
-    <span class="badge bg-primary rounded-pill">{{ num_genres }}</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Book Available to Borrow:
-    <span class="badge bg-primary rounded-pill">{{ num_books_available }}</span>
-  </li>
-</ul>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Welcome to the Library Management System</h1>
+    <h2 class="text-center mb-4">The library has the following record counts:</h2>
+    
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total number of books:
+            <span class="badge bg-primary rounded-pill">{{ num_books }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total number of book copies:
+            <span class="badge bg-primary rounded-pill">{{ num_books_copied }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total number of genres:
+            <span class="badge bg-primary rounded-pill">{{ num_genres }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Books Available to Borrow:
+            <span class="badge bg-primary rounded-pill">{{ num_books_available }}</span>
+        </li>
+    </ul>
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'books' %}" class="btn btn-success">View All Books</a>
+        <a href="{% url 'authors' %}" class="btn btn-info">View All Authors</a>
+        <a href="{% url 'genres' %}" class="btn btn-warning">View All Genres</a>
+    </div>
+</div>
 {% endblock %}
+
